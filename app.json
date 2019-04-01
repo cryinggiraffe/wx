@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/test/test",
+    "pages/login/login",
+    "pages/student/index/index",
+    "pages/student/checkIn/checkIn",
+    "pages/student/courseDetail/courseDetail",
+    "pages/student/courseGrade/courseGrade",
+    "pages/student/courseDoc/courseDoc",
+    "pages/student/mine/mine",
+    "pages/student/classSchedule/classSchedule",
+    "pages/student/courseVideo/courseVideo",
+    "pages/student/appointment/appointment",
+    "pages/student/video/video",
+    "pages/teacher/index/index",
+    "pages/student/feedBack/feedBack",
+    "pages/student/signOn/signOn",
+    "pages/teacher/mine/mine",
+    "pages/teacher/courseDetail/courseDetail",
+    "pages/teacher/appointment/appointment",
+    "pages/teacher/feedBack/feedBack",
+    "pages/teacher/courseGrade/courseGrade",
+    "pages/teacher/checkIn/checkIn"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  }
+}
