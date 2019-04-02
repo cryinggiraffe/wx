@@ -32,6 +32,12 @@ Page({
     })
   },
 
+  register: function () {
+    wx.navigateTo({
+      url: '/pages/register/register',
+    })
+  },
+
   login: function(){
     var username = this.data.username;
     console.log(this.data);

@@ -83,6 +83,7 @@ Page({
                 },
                 success(res){
                   console.log(res.data);
+
                   var resData_success = res.data.success
                   var resData_message = res.data.message
                   var resData_username = res.data.username

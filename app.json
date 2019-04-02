@@ -4,6 +4,7 @@
     "pages/logs/logs",
     "pages/test/test",
     "pages/login/login",
+    "pages/register/register",
     "pages/student/index/index",
     "pages/student/checkIn/checkIn",
     "pages/student/courseDetail/courseDetail",
