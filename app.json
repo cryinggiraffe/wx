@@ -22,8 +22,15 @@
     "pages/teacher/appointment/appointment",
     "pages/teacher/feedBack/feedBack",
     "pages/teacher/courseGrade/courseGrade",
-    "pages/teacher/checkIn/checkIn"
+    "pages/teacher/checkIn/checkIn",
+	"pages/student/questions/questions",
+    "pages/student/homeworkDetail/homeworkDetail"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
