@@ -10,16 +10,6 @@
   flex-direction: row;
 }
 
-/* list_item_left, list_item_right{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.list_item_left{
-  font-size: 45rpx;
-} */
-
 .list_item_left{
   display: flex;
   flex-direction: column;
