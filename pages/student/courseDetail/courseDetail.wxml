@@ -6,7 +6,6 @@
     <button class='content_btn' bindtap='toCourseDoc' data-item='{{courseName}}' data-id='{{courseId}}'><text>课程资料</text></button>
     <button class='content_btn'  bindtap='toCourseGrade' data-item='{{courseName}}' data-id='{{courseId}}'><text>课程成绩</text></button>
     <button class='content_btn'  bindtap='toFeedBack' data-item='{{courseName}}' data-id='{{courseId}}'><text>课程反馈</text></button>
-	<button class='content_btn'  bindtap='toStatistic' data-item='{{courseName}}' data-id='{{courseId}}'><text>答题情况</text></button>
   </view>
 </view>
 
