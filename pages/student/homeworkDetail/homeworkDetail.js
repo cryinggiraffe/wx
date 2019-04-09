@@ -29,7 +29,7 @@ Page({
     }
     console.log("there is obj");
     console.log(JSON.stringify(obj));
-	var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+	  var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     var that = this;
     if (mymap.size == 0) {
       wx.showToast({
@@ -39,9 +39,9 @@ Page({
       })
     }else {
       wx.request({
-		url: address + '/question/submitChoiceQuestion',
+	    	url: address + '/question/submitChoiceQuestion',
         //url: 'http://localhost:8080/question/submitChoiceQuestion',
-		method: 'POST',
+		    method: 'POST',
         data: {
           hId: that.data.hId,
           sId: that.data.sId,
@@ -49,7 +49,7 @@ Page({
         },
         header: {
           'Content-Type': 'application/x-www-form-urlencoded',
-		  "Cookie": wx.getStorageSync("sessionId")
+		      "Cookie": wx.getStorageSync("sessionId")
         },
         success: function (res) {
           console.log(res)
@@ -75,14 +75,6 @@ Page({
           
         }
       });
-
-      mymap = new Map();
-      console.log("clear zhihou : " + mymap)
-
-      var that = this;
-      wx: wx.navigateTo({
-        url: '/pages/student/questions/questions?cId=' + that.data.cId,
-      })
 
     }
 
@@ -116,18 +108,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-	var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+	  var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     var that = this;
     wx.request({
-	  url: address + '/question/findChoiceQuestion',
+	    url: address + '/question/findChoiceQuestion',
       //url: 'http://localhost:8080/question/findChoiceQuestion',
-	  method: 'POST',
+	    method: 'POST',
       data: {
         hId: that.data.hId
       },
-	  header: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-		  "Cookie": wx.getStorageSync("sessionId")
+	    header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+		    "Cookie": wx.getStorageSync("sessionId")
       },
       success: function (res) {
         console.log(res)

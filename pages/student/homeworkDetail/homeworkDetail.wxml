@@ -10,22 +10,22 @@
           </view>
           <view class='answer_select'>
             <radio-group class='radio-group' bindchange='radioChange'>
-              <radio class='radio' value='A+{{item.cqId}}' checked='{{item.checked}}'>
+              <radio class='radio' wx:if="{{item.optionA.length != 0}}" value='A+{{item.cqId}}' checked='{{item.checked}}'>
                 <view class='option-content'>
                   <text> A. {{item.optionA}}</text>
                 </view>
               </radio>
-              <radio class='radio' value='B+{{item.cqId}}' checked='{{item.checked}}'>
+              <radio class='radio' wx:if="{{item.optionB.length != 0}}"  value='B+{{item.cqId}}' checked='{{item.checked}}'>
                 <view class='option-content'>
                   <text> B. {{item.optionB}}</text>
                 </view>
               </radio>
-              <radio class='radio' value='C+{{item.cqId}}' checked='{{item.checked}}'>
+              <radio class='radio' wx:if="{{item.optionC.length != 0}}"  value='C+{{item.cqId}}' checked='{{item.checked}}'>
                 <view class='option-content'>
                   <text> C. {{item.optionC}}</text>
                 </view>
               </radio>
-              <radio class='radio' value='D+{{item.cqId}}' checked='{{item.checked}}'>
+              <radio class='radio' wx:if="{{item.optionD.length != 0}}"  value='D+{{item.cqId}}' checked='{{item.checked}}'>
                 <view class='option-content'>
                   <text> D. {{item.optionD}}</text>
                 </view>

@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx24f94ee5b5fa17f4",
-	"projectname": "demo2",
+	"projectname": "wx",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
