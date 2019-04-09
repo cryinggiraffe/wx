@@ -1,2 +1,0 @@
-<!--pages/teacher/statisticDetail/statisticDetail.wxml-->
-<canvas canvas-id="canvas1" class="myCanvas" style="width:{{chartWidth}}px;height:{{chartHeight}}px;"/>

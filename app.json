@@ -23,10 +23,8 @@
     "pages/teacher/feedBack/feedBack",
     "pages/teacher/courseGrade/courseGrade",
     "pages/teacher/checkIn/checkIn",
-    "pages/student/questions/questions",
-    "pages/student/homeworkDetail/homeworkDetail",
-    "pages/teacher/statistic/statistic",
-    "pages/teacher/statisticDetail/statisticDetail"
+	"pages/student/questions/questions",
+    "pages/student/homeworkDetail/homeworkDetail"
   ],
   "permission": {
     "scope.userLocation": {
