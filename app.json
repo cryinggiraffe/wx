@@ -20,6 +20,8 @@
     "pages/student/signOn/signOn",
     "pages/teacher/mine/mine",
     "pages/teacher/courseDetail/courseDetail",
+    "pages/teacher/questions/questions",
+    "pages/teacher/publishHomework/publishHomework",
     "pages/teacher/appointment/appointment",
     "pages/teacher/feedBack/feedBack",
     "pages/teacher/courseGrade/courseGrade",

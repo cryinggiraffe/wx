@@ -48,6 +48,8 @@ Page({
 
   register: function (e) {
     var s_idCard = this.data.s_idCard;
+    //var address = 'http://120.55.54.247:8080';
+    //var address = 'http://localhost:8080/TeachingAssistantSystem'
     var address = 'https://www.ufeng.top/TeachingAssistantSystem'
 
     wx.setStorageSync('sIdCard', s_idCard)
@@ -83,13 +85,12 @@ Page({
         method: 'POST',
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         data: {
-          s_id: wx.getStorageSync('openid'),
+          s_id: getApp().globalData.openid,
           s_name: this.data.s_name,
           s_sex: this.data.sex,
           s_idCard: this.data.s_idCard,
           password: this.data.password1
         },
-
         
         success: function (res) {
           console.log(res.data);

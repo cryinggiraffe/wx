@@ -40,6 +40,10 @@ Page({
 
   login: function(){
     var username = this.data.username;
+    //var address = 'http://120.55.54.247:8080';
+    //var address = 'http://localhost:8080/TeachingAssistantSystem'
+    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+
     console.log(this.data);
     console.log(username);
     wx.setStorageSync('sId', username)
@@ -51,9 +55,9 @@ Page({
       })
     }else{
       wx.request({
-        url: 'https://www.ufeng.top/TeachingAssistantSystem/wx/login2',
+        //url: 'https://www.ufeng.top/TeachingAssistantSystem/wx/login2',
         //url: 'http://120.55.54.247:8080/wx/login2',
-        //url: 'http://localhost:8080/wx/login2',
+        url: address + '/wx/login2',
         method: 'POST',
         header: {'content-type': 'application/x-www-form-urlencoded'},
         data: {
