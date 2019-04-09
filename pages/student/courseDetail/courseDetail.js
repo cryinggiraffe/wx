@@ -37,6 +37,14 @@ Page({
       url: '/pages/student/feedBack/feedBack?cName=' + cName + '&cId=' + cId,
     })
   },
+  toStatistic: function (e) {
+    console.log(e)
+    let cName = e.currentTarget.dataset.item;
+    let cId = e.currentTarget.dataset.id
+    wx: wx.navigateTo({
+      url: '/pages/teacher/statistic/statistic?cName=' + cName + '&cId=' + cId,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

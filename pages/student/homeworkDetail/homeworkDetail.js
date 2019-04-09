@@ -76,14 +76,6 @@ Page({
         }
       });
 
-      mymap = new Map();
-      console.log("clear zhihou : " + mymap)
-
-      var that = this;
-      wx: wx.navigateTo({
-        url: '/pages/student/questions/questions?cId=' + that.data.cId,
-      })
-
     }
 
 
