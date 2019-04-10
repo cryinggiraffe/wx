@@ -1,4 +1,40 @@
 /* pages/teacher/publishHomework/publishHomework.wxss */
+.header {
+  margin-left: 10px
+}
+
+/*checkbox 整体大小  */
+checkbox {
+  width: 80rpx;
+  height: 80rpx;
+}
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  width: 50rpx;
+  height: 50rpx;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #FF525C;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 10rpx;
+  height: 30rpx;
+  line-height: 20rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.tui-menu-list{
+  word-break: break-all;
+}
+
+
 .deliever{
   height:20px;
   background-color:rgb(255, 254, 254);
@@ -34,6 +70,11 @@
 .title{
   text-align: center;
   font-size: 20px;
+}
+
+.tui-menu-list{
+  margin-left: 20rpx;
+  width: 300px;
 }
 
 .reserve{

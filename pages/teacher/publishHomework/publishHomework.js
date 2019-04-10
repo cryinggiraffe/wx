@@ -9,6 +9,7 @@ Page({
     items:[],
     hId:'',
     hTitle:'',
+    selected:''
   },
 
   /**
@@ -23,9 +24,13 @@ Page({
     });
     this.cName = options.cName;
 
+    this.setData({
+      hId: Math.random().toString(36).substr(2, 15)
+    })
+
     //var address = 'http://120.55.54.247:8080';
-    var address = 'http://localhost:8080/TeachingAssistantSystem'
-    //var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    //var address = 'http://localhost:8080/TeachingAssistantSystem'
+    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
 
     wx.request({
       url: address + '/getAllCourseQuestions',
@@ -75,28 +80,21 @@ Page({
 
     //console.log(arr.join(""));
     this.setData({ checkArr: arr });
-    this.setData({ hTitle: arr.join("")})
-    //console.log(this.data.hTitle);
+    this.setData({ selected: arr.join("/")})
+    //console.log(this.data.selected);
 
-  },
-
-  getChosen:function(e) {
-    console.log(e.target.dataset.text)
-    this.setData({
-      hTitle: e.target.dataset.text
-    })
   },
 
   toPublish:function(e) {
     //var address = 'http://120.55.54.247:8080';
     //var address = 'http://localhost:8080/TeachingAssistantSystem'
     var address = 'https://www.ufeng.top/TeachingAssistantSystem'
-    if(this.data.hId.length == 0){
+    if(this.data.hTitle.length == 0){
       wx.showToast({
         title: '请输入作业描述',
         content: ''
       })
-    }else if(this.data.hTitle == 0){
+    }else if(this.data.selected.length == 0){
       wx.showToast({
         title: '请至少选择一题',
         content: ''
@@ -110,6 +108,7 @@ Page({
           h_id: this.data.hId,
           h_title: this.data.hTitle,
           release_time: this.data.date,
+          selected:this.data.selected
         },
 
         success: function (res) {
@@ -137,7 +136,7 @@ Page({
 
   descriptionInput: function (e) {
     this.setData({
-      hId: e.detail.value
+      hTitle: e.detail.value
     })
   },
 
