@@ -22,6 +22,7 @@
     "pages/teacher/courseDetail/courseDetail",
     "pages/teacher/questions/questions",
     "pages/teacher/publishHomework/publishHomework",
+    "pages/teacher/history/history",
     "pages/teacher/appointment/appointment",
     "pages/teacher/feedBack/feedBack",
     "pages/teacher/courseGrade/courseGrade",

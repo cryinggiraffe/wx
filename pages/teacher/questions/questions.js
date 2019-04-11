@@ -11,10 +11,16 @@ Page({
   toCreate:function(e) {
     let cName = this.cName;
     let cId = this.cId;
-    //console.log(cName);
-    //console.log(cId);
     wx.navigateTo({
       url: '/pages/teacher/publishHomework/publishHomework?cName=' + cName + '&cId=' + cId,
+    })
+  },
+
+  toHistory:function(e) {
+    let cName = this.cName;
+    let cId = this.cId;
+    wx.navigateTo({
+      url: '/pages/teacher/history/history?cName=' + cName + '&cId=' + cId,
     })
   },
 

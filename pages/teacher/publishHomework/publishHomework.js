@@ -29,8 +29,8 @@ Page({
     })
 
     //var address = 'http://120.55.54.247:8080';
-    //var address = 'http://localhost:8080/TeachingAssistantSystem'
-    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    var address = 'http://localhost:8080/TeachingAssistantSystem'
+    //var address = 'https://www.ufeng.top/TeachingAssistantSystem'
 
     wx.request({
       url: address + '/getAllCourseQuestions',
@@ -39,13 +39,13 @@ Page({
         c_id: this.cId
       },
       success: function (res) {
-        console.log(that.data.items);
+        console.log(res.data);
         var list = res.data;
 
         for (let i = 0; i < list.length; i++) {
           that.setData({
             objects: {
-              name: list[i].id, value: list[i].cqContent
+              name: list[i].id, value: list[i].cqContent, cqId:list[i].cqId
             }
           })
           that.data.items.push(that.data.objects);
@@ -69,10 +69,12 @@ Page({
 
   checkboxChange:function(e) {
     var arr = [];
+    var arr2 = [];
     e.detail.value.forEach(current => {
       for (var value of this.data.items) {
         if (current == value.name) {
           arr.push(value.name);
+          arr2.push(value.cqId);
           break;
         }
       }
@@ -80,15 +82,15 @@ Page({
 
     //console.log(arr.join(""));
     this.setData({ checkArr: arr });
-    this.setData({ selected: arr.join("/")})
+    this.setData({ selected: arr2.join("/")})
     //console.log(this.data.selected);
 
   },
 
   toPublish:function(e) {
     //var address = 'http://120.55.54.247:8080';
-    //var address = 'http://localhost:8080/TeachingAssistantSystem'
-    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    var address = 'http://localhost:8080/TeachingAssistantSystem'
+    //var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     if(this.data.hTitle.length == 0){
       wx.showToast({
         title: '请输入作业描述',

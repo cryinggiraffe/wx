@@ -19,9 +19,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 }
 /*checkbox选中后图标样式  */
 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
-  width: 10rpx;
-  height: 30rpx;
-  line-height: 20rpx;
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
   text-align: center;
   font-size: 22rpx;
   color: #fff;
