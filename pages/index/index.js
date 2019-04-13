@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var OPEN_ID = ''//存储获取openid
 
 Page({
   data: {
@@ -62,7 +63,7 @@ Page({
     var that = this;
     wx.login({
       success(res) {
-        console.log(res.code)
+        //console.log(res.code)
 
         if (res.code) {
           //wx.setStorageSync('code', res.code)
@@ -74,7 +75,14 @@ Page({
             },
             success(res){
               console.log(res);
-              wx.setStorageSync('openid', res.data.openid)
+              wx.setStorageSync('openid', res.data.openid);
+              OPEN_ID = res.data.openid;
+
+              app.globalData.openid = OPEN_ID;
+
+              //console.log("OPENID = "+ app.globalData.openid);
+              //console.log("getid = " + getApp().globalData.openid);
+
               wx.request({
                 url: address + '/wx/login',
                 data:{
@@ -83,6 +91,7 @@ Page({
                 },
                 success(res){
                   console.log(res.data);
+
                   var resData_success = res.data.success
                   var resData_message = res.data.message
                   var resData_username = res.data.username

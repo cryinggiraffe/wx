@@ -12,6 +12,6 @@
     <text class="user-motto">{{motto}}</text>
   </view>
   -->
-  <button class="usermotto" wx:if="{{hasUserInfo && canIUse}}" bindtap="goToLogin"> 登陆
+  <button class="usermotto" wx:if="{{hasUserInfo && canIUse}}" bindtap="goToLogin"> 登录
   </button>
 </view>

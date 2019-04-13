@@ -9,7 +9,7 @@ Page({
   },
   toQuestions: function (e) {
     let cName = e.currentTarget.dataset.item;
-    let cId = e.currentTarget.dataset.id
+    let cId = e.currentTarget.dataset.id;
     wx: wx.navigateTo({
       url: '/pages/teacher/questions/questions?cName=' + cName + '&cId=' + cId,
     })
