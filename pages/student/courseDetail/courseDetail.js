@@ -37,6 +37,7 @@ Page({
       url: '/pages/student/feedBack/feedBack?cName=' + cName + '&cId=' + cId,
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
