@@ -22,12 +22,12 @@ Page({
     });
 
     //var address = 'http://120.55.54.247:8080';
-    var address = 'http://localhost:8080/TeachingAssistantSystem'
-    //var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    //var address = 'http://localhost:8080/TeachingAssistantSystem'
+    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
 
     wx.request({
       url: address + '/getHomeworkHistory',
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
         c_id: this.cId
       },
