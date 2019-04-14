@@ -35,7 +35,7 @@ Page({
       wx.showToast({
         title: '请先选择',
         icon: 'none',
-        duration: 3000
+        duration: 2000
       })
     }else {
       wx.request({
@@ -57,19 +57,19 @@ Page({
             wx.showToast({
               title: '提交成功',
               icon: 'success',
-              duration: 3000
+              duration: 2000
             })
           } else if (res.data.message == '已经提交！'){
             wx.showToast({
               title: '重复提交！',
               icon: 'none',
-              duration: 3000
+              duration: 2000
             })
           } else {
             wx.showToast({
               title: '未知错误',
               icon: 'none',
-              duration: 3000
+              duration: 2000
             })
           }
           

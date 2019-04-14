@@ -9,14 +9,6 @@ Page({
     sId: ""
   },
 
-  toHomeworkDetail: function(e) {
-    let hId = e.currentTarget.dataset.item.hId;
-    var that = this;
-    wx.navigateTo({
-      url: '/pages/student/homeworkDetail/homeworkDetail?hId=' + hId + '&cId=' + that.data.cId,
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
