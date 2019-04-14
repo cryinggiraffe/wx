@@ -29,12 +29,12 @@ Page({
     })
 
     //var address = 'http://120.55.54.247:8080';
-    var address = 'http://localhost:8080/TeachingAssistantSystem'
-    //var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    //var address = 'http://localhost:8080/TeachingAssistantSystem'
+    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
 
     wx.request({
       url: address + '/getAllCourseQuestions',
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
         c_id: this.cId
       },
@@ -89,8 +89,8 @@ Page({
 
   toPublish:function(e) {
     //var address = 'http://120.55.54.247:8080';
-    var address = 'http://localhost:8080/TeachingAssistantSystem'
-    //var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    //var address = 'http://localhost:8080/TeachingAssistantSystem'
+    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     if(this.data.hTitle.length == 0){
       wx.showToast({
         title: '请输入作业描述',
@@ -104,7 +104,7 @@ Page({
     }else{
       wx.request({
         url: address + '/publishHomework',
-        header: { 'content-type': 'application/x-www-form-urlencoded' },
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: {
           c_id: this.data.cId,
           h_id: this.data.hId,
