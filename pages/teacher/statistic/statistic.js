@@ -8,13 +8,13 @@ Page({
     cId: "",
   },
 
-  toStatisticDetail: function (e) {
-    let hId = e.currentTarget.dataset.item.hId;
-    var that = this;
-    wx.navigateTo({
-      url: '/pages/teacher/statisticDetail/statisticDetail?hId=' + hId,
-    })
-  },
+  // toStatisticDetail: function (e) {
+  //   let hId = e.currentTarget.dataset.item.hId;
+  //   var that = this;
+  //   wx.navigateTo({
+  //     url: '/pages/teacher/statisticDetail/statisticDetail?hId=' + hId,
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */

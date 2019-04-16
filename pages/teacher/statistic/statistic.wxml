@@ -2,17 +2,17 @@
 <view class='question'>
   <text class='header'>课堂问题</text>
 
-  <scroll-view scroll-y="true">
-    <view wx:for='{{homework_list}}' class='list_column'>
-      <view class='homework_label'>
-        <view class='title'>
-          <text>{{item.hTitle}}</text>
+  <view class='news-item-container'>
+    <scroll-view scroll-y="true">
+      <navigator url='../statisticDetail/statisticDetail?hId={{item.hId}}' wx:for='{{homework_list}}' class='list_column'>
+        <view class='homework_label'>
+          <view class='title'>
+            <text>{{item.hTitle}}</text>
+          </view>
         </view>
-        <view class='list_item_right'>
-          <button data-item='{{item}}' bindtap='toStatisticDetail'>查看详情</button>
-        </view>
-      </view>
-    </view>
-  </scroll-view>
+      </navigator>
+    </scroll-view>
+  </view>
+
 
 </view>
