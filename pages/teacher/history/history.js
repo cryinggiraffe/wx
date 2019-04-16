@@ -32,17 +32,20 @@ Page({
         c_id: this.cId
       },
       success: function (res) {
+        console.log(res.data)
         var list = res.data;
         for (let i = 0; i < list.length; i++) {
           that.setData({
             objects: {
-              title: list[i].hTitle
+              title: list[i].hTitle,
+              ddl:list[i].releasetime,
+              id:list[i].hId
             }
           })
           that.data.items.push(that.data.objects);
         }
         var vvv = that.data.items;
-        //console.log(that.data.items);
+        console.log(that.data.items);
         that.setData({
           items: vvv
         })
@@ -54,6 +57,26 @@ Page({
   toDetail:function(e) {
     console.log(e.currentTarget.dataset.title)
     var h_title = e.currentTarget.dataset.title;
+    let cName = this.data.cName;
+    let cId = this.data.cId;
+    let hTitle = h_title;
+    let ddl = '';
+    let hId = '';
+
+    //console.log(this.data.items)
+    var homework = this.data.items
+
+    for(var i in homework){
+      if(hTitle == homework[i].title){
+          ddl = homework[i].ddl;
+          hId = homework[i].id;
+          break;
+      }
+    }
+
+    wx: wx.navigateTo({
+      url: '/pages/teacher/history/detail?cName=' + cName + '&cId=' + cId + '&hTitle=' + hTitle + '&ddl=' + ddl + '&hId=' + hId,
+    })
   },
 
   /**
