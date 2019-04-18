@@ -1,8 +1,10 @@
+var util = require('../../../utils/util.js');
+
 Page({
   data: {
     cId:'',
     cName:'',
-    date: '2019-1-1',
+    date: '',
     name:[],
     //value:[],
     objects:{},
@@ -16,6 +18,8 @@ Page({
  * 生命周期函数--监听页面加载
  */
   onLoad: function (options) {
+    var DATE = util.formatDate(new Date());
+
     console.log(options);
     var that = this;
     this.cId = options.cId;
@@ -25,7 +29,8 @@ Page({
     this.cName = options.cName;
 
     this.setData({
-      hId: Math.random().toString(36).substr(2, 15)
+      hId: Math.random().toString(36).substr(2, 15),
+      date:DATE,
     })
 
     //var address = 'http://120.55.54.247:8080';
@@ -39,7 +44,6 @@ Page({
         c_id: this.cId
       },
       success: function (res) {
-        console.log(res.data);
         var list = res.data;
 
         for (let i = 0; i < list.length; i++) {
@@ -51,7 +55,6 @@ Page({
           that.data.items.push(that.data.objects);
         }
         var vvv = that.data.items;
-        console.log(that.data.items);
         that.setData({
           items: vvv
         })
@@ -79,11 +82,8 @@ Page({
         }
       }
     });
-
-    //console.log(arr.join(""));
     this.setData({ checkArr: arr });
     this.setData({ selected: arr2.join("/")})
-    //console.log(this.data.selected);
 
   },
 

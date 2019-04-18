@@ -25,14 +25,16 @@
       <view class="tui-menu-list"><checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>     
     </label>
   </checkbox-group>
-  
-
-  <view class='reserve_type reserve_man'>
+ 
+  <!--
+    <view class='reserve_type reserve_man'>
     <view class="tui-show-name">
     已选：
     <text wx:for="{{checkArr}}" bindtap='getChosen'> {{item}} </text>
     </view>
   </view>
+  -->
+
 
   <view class='footer'>
       <button class='btn-area' bindtap='toPublish'>发布</button>
