@@ -28,8 +28,9 @@ page{
 } 
   
 .inputView { 
+ margin-top: 5px; 
  background-color: #fff; 
- line-height: 44px; 
+ line-height: 35px; 
 } 
 /*输入框*/
 .nameImage, .keyImage { 
@@ -48,7 +49,7 @@ page{
  float: left; 
  text-align: left; 
  margin-right: 22px; 
- margin-top: 11px; 
+ margin-top: 6px; 
  color: #cccccc; 
  font-size: 14px
 } 
@@ -57,7 +58,7 @@ page{
   float: right; 
   text-align: right; 
   margin-right: 22px; 
-  margin-top: 11px; 
+  margin-top: 6px; 
   color: #a3a1a1; 
   font-size: 14px
 }
@@ -80,4 +81,9 @@ page{
 .loginBtn { 
  width: 80%; 
  margin-top: 35px; 
+}
+
+.registerBtn {
+  width: 80%;
+  margin-top: 6px;
 }

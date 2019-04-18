@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    ashow:true
   },
 
   cancelAppointment: function(e){
@@ -107,6 +107,16 @@ Page({
       }
     });
   },
+  showAppoint: function () {
+    this.setData({
+      ashow: true
+    })
+  },
+  showAppointed: function () {
+    this.setData({
+      ashow: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -126,6 +136,44 @@ Page({
    */
   onShow: function () {
     app.editTabBar();
+
+    var that = this
+    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    wx.request({
+      url: address + '/appointment/findAppointed',
+      //url: 'http://localhost:8080/appointment/findAppointed',
+      method: 'GET',
+      data: {
+        sId: wx.getStorageSync('sId')
+      },
+      header: {
+        "Content-Type":
+          "application/x-www-form-urlencoded",
+        "Cookie": wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+        console.log(res);
+        for (var i = 0, len = res.data.length; i < len; i++) {
+
+          //var formatStart = res.data[i].start.replace(/\-/g, '/')
+          //var start = new Date(formatStart);
+          var date_start = new Date(res.data[i].start);
+          //var date_value_start = util.formatTime(start)
+          var date_value_start = util.formatTime(date_start)
+          //res.data[i].start = date_value_start
+
+
+          var date_end = new Date(res.data[i].end);
+          var date_value_end = util.formatTime(date_end)
+          //res.data[i].end = date_value_end
+        }
+        
+        that.setData({
+
+          have_appointed_list: res.data
+        })
+      }
+    });
 
     var that = this
 
