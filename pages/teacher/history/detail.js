@@ -9,7 +9,8 @@ Page({
     items: [],
     hId: '',
     hTitle: '',
-    selected: ''
+    selected: '',
+    chosen:''
   },
 
   /**
@@ -35,28 +36,55 @@ Page({
     var address = 'https://www.ufeng.top/TeachingAssistantSystem'
 
     wx.request({
+      url: address + '/getChoiceQuestions',
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: {
+        h_id: this.hId
+      },
+      success: function (res) {
+        that.setData({
+          chosen:res.data
+        })
+        console.log(that.data.chosen)
+      }
+    })
+
+    wx.request({
       url: address + '/getAllCourseQuestions',
       header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
         c_id: this.cId
       },
       success: function (res) {
-        //console.log(res.data);
+        console.log(res.data);
         var list = res.data;
-
+        var init = [];
         for (let i = 0; i < list.length; i++) {
-          that.setData({
-            objects: {
-              name: list[i].id, value: list[i].cqContent, cqId: list[i].cqId
-            }
-          })
+          var chosen = that.data.chosen
+          if(chosen.indexOf(list[i].cqId)>=0){
+            init.push(list[i].cqId);
+            that.setData({
+              objects: {
+                name: list[i].id, value: list[i].cqContent, cqId: list[i].cqId, checked: true
+              }
+            })
+          } else {
+            that.setData({
+              objects: {
+                name: list[i].id, value: list[i].cqContent, cqId: list[i].cqId, checked: false
+              }
+            })
+          }
           that.data.items.push(that.data.objects);
+          that.setData({ selected: init.join("/") })
         }
         var vvv = that.data.items;
         console.log(that.data.items);
         that.setData({
           items: vvv
         })
+
+        console.log(that.data.selected);
       }
     },
     
@@ -86,7 +114,7 @@ Page({
     //console.log(arr.join(""));
     this.setData({ checkArr: arr });
     this.setData({ selected: arr2.join("/") })
-    //console.log(this.data.selected);
+    console.log(this.data.selected);
 
   },
 
@@ -99,6 +127,11 @@ Page({
         title: '请输入作业描述',
         content: ''
       })
+    } else if (this.data.selected.length == 0) {
+      wx.showToast({
+        title: '请至少选择一题',
+        content: ''
+      })
     } else {
       wx.request({
         url: address + '/republishHomework',
@@ -108,6 +141,7 @@ Page({
           h_id: this.data.hId,
           h_title: this.data.hTitle,
           release_time: this.data.date,
+          selected: this.data.selected
         },
 
         success: function (res) {

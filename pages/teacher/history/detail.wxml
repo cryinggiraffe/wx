@@ -19,6 +19,15 @@
     </view>
 
   <view class="tui-content">
+
+      <checkbox-group bindchange="checkboxChange">
+     
+    <label class="checkbox" wx:for-items="{{items}}">
+      <view class="tui-menu-list"><checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>     
+    </label>
+  </checkbox-group>
+
+
   <view class='footer'>
       <button class='btn-area' bindtap='toModify'>修改并发布</button>
     </view>
