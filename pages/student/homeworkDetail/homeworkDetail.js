@@ -1,6 +1,7 @@
 // pages/student/homeworkDetail/homeworkDetail.js
 
 let mymap = new Map();
+let nmap = new Map();
 
 Page({
 
@@ -15,10 +16,28 @@ Page({
   },
 
   radioChange: function(e) {
+    console.log(e.detail.value)
     var value = new Array();
     value = e.detail.value.split("+");
     mymap.set(value[1], value[0]);
     console.log(mymap)
+
+  },
+
+  checkboxChange: function (e) {
+    nmap = new Map();
+    var result = e.detail.value;
+    for (let j = 0; j < result.length; ++j) {
+      var value = new Array();
+      value = result[j].split("+");
+      if (nmap.has(value[1])) {
+        var temp = nmap.get(value[1]) + value[0];
+        nmap.set(value[1], temp);
+      }else {
+        nmap.set(value[1], value[0]);
+      }
+    }
+    console.log(nmap);
 
   },
 
@@ -27,13 +46,16 @@ Page({
     for (let [k, v] of mymap) {
       obj[k] = v;
     }
+    for (let [k, v] of nmap) {
+      obj[k] = v;
+    }
     console.log("there is obj");
     console.log(JSON.stringify(obj));
 	var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     var that = this;
-    if (mymap.size == 0) {
+    if (mymap.size + nmap.size < that.data.choiceQuestion_list.length) {
       wx.showToast({
-        title: '请先选择',
+        title: '题目未完成',
         icon: 'none',
         duration: 2000
       })
@@ -127,6 +149,7 @@ Page({
           choiceQuestion_list: res.data
         })
         mymap = new Map();
+        nmap = new Map();
       }
     });
   },
