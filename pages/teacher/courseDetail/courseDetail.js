@@ -9,7 +9,7 @@ Page({
   },
   toQuestions: function (e) {
     let cName = e.currentTarget.dataset.item;
-    let cId = e.currentTarget.dataset.id;
+    let cId = e.currentTarget.dataset.id
     wx: wx.navigateTo({
       url: '/pages/teacher/questions/questions?cName=' + cName + '&cId=' + cId,
     })
@@ -35,6 +35,22 @@ Page({
     let cId = e.currentTarget.dataset.id
     wx: wx.navigateTo({
       url: '/pages/teacher/feedBack/feedBack?cName=' + cName + '&cId=' + cId,
+    })
+  },
+  toStatistic: function (e) {
+    console.log(e)
+    let cName = e.currentTarget.dataset.item;
+    let cId = e.currentTarget.dataset.id
+    wx: wx.navigateTo({
+      url: '/pages/teacher/statistic/statistic?cName=' + cName + '&cId=' + cId,
+    })
+  },
+  toLocation: function (e) {
+    console.log(e)
+    let cName = e.currentTarget.dataset.item;
+    let cId = e.currentTarget.dataset.id
+    wx: wx.navigateTo({
+      url: '/pages/teacher/location/location?cName=' + cName + '&cId=' + cId,
     })
   },
   /**

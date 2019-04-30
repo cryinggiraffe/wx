@@ -1,10 +1,16 @@
-// pages/teacher/toFeedBack/toFeedBack.js
+// pages/teacher/statisticDetail/statisticDetail.js
+var chart = require("../../../utils/chart.js");
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    hId: "",
+    que: [],
+    post: [],
 
   },
 
@@ -12,10 +18,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      cName: options.cName,
-      cId: options.cId
+    var that = this;
+    that.setData({
+      hId: options.hId,
     })
+    console.log(that.data.hId);
+
   },
 
   /**
@@ -29,35 +37,39 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.showLoading({
-      title: '',
-    })
-    var that = this;
-    //var address = 'http://120.55.54.247:8080'
-    //var address = 'http://localhost:8080/TeachingAssistantSystem'
     var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    var that = this;
     wx.request({
-      url: address + '/coursecommentrecord/findAllCourseCommentRecords',
+      url: address + '/question/findChoiceQuestionStatistic',
       method: 'POST',
+      data: {
+        hId: that.data.hId
+      },
       header: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        'Content-Type': 'application/x-www-form-urlencoded',
         "Cookie": wx.getStorageSync("sessionId")
       },
-      data: {
-        cId: that.data.cId
-      },
       success: function (res) {
-        // var class_list = res.data;
-        console.log(res.data)
+        console.log(res.data.cquestion)
+        console.log(res.data.statisticContents)
         that.setData({
-          feedback_list: res.data
+          que: res.data.cquestion,
+          post: res.data.statisticContents
         });
-        wx.hideLoading();
-      },
-      fail: function (e) {
-        wx.hideLoading();
+
+        chart.draw(that, 'canvas1', {
+          title: {
+            text: "学生答题情况统计",
+            color: "#333333"
+          },
+          xAxis: {
+            data: that.data.que
+          },
+          series: that.data.post
+        });
       }
     });
+
   },
 
   /**

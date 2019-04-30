@@ -1,21 +1,25 @@
-// pages/teacher/toFeedBack/toFeedBack.js
+// pages/student/questions/questions.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    cId: "",
+    sId: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      cName: options.cName,
-      cId: options.cId
+    var that = this;
+    that.setData({
+      cId: options.cId,
+      sId: wx.getStorageSync('sId')
     })
+    console.log(that.data.cId)
+    console.log(that.data.sId)
   },
 
   /**
@@ -29,35 +33,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.showLoading({
-      title: '',
-    })
+	var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     var that = this;
-    //var address = 'http://120.55.54.247:8080'
-    //var address = 'http://localhost:8080/TeachingAssistantSystem'
-    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     wx.request({
-      url: address + '/coursecommentrecord/findAllCourseCommentRecords',
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Cookie": wx.getStorageSync("sessionId")
-      },
+	  url: address + '/question/findHomework',
+      //url: 'http://localhost:8080/question/findHomework',
+	  method: 'POST',
       data: {
         cId: that.data.cId
       },
-      success: function (res) {
-        // var class_list = res.data;
-        console.log(res.data)
-        that.setData({
-          feedback_list: res.data
-        });
-        wx.hideLoading();
+	  header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+		"Cookie": wx.getStorageSync("sessionId")
       },
-      fail: function (e) {
-        wx.hideLoading();
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          homework_list: res.data
+        })
       }
     });
+
   },
 
   /**

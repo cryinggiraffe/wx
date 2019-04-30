@@ -5,7 +5,7 @@ var OPEN_ID = ''//存储获取openid
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: 'Hello World sihaining',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
