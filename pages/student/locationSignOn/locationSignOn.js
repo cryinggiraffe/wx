@@ -1,19 +1,27 @@
-// pages/teacher/toFeedBack/toFeedBack.js
+// pages/student/locationSignOn/locationSignOn.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    cId: "",
+  },
 
+  toLocation: function (e) {
+    console.log(e);
+    let lId = e.currentTarget.dataset.item.lId
+    wx: wx.navigateTo({
+      url: '/pages/student/locationDetail/locationDetail?lId=' + lId,
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      cName: options.cName,
+    var that = this;
+    that.setData({
       cId: options.cId
     })
   },
@@ -29,33 +37,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.showLoading({
-      title: '',
-    })
-    var that = this;
-    //var address = 'http://120.55.54.247:8080'
-    //var address = 'http://localhost:8080/TeachingAssistantSystem'
     var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    var that = this
     wx.request({
-      url: address + '/coursecommentrecord/findAllCourseCommentRecords',
+      url: address + '/lesson/findAllLocationSignOnList',
       method: 'POST',
+      data: {
+        cId: that.data.cId
+      },
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
         "Cookie": wx.getStorageSync("sessionId")
       },
-      data: {
-        cId: that.data.cId
-      },
       success: function (res) {
-        // var class_list = res.data;
-        console.log(res.data)
+        console.log(res)
         that.setData({
-          feedback_list: res.data
-        });
-        wx.hideLoading();
-      },
-      fail: function (e) {
-        wx.hideLoading();
+          signOn_list: res.data
+        })
       }
     });
   },

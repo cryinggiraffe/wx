@@ -16,6 +16,18 @@
   font-size: 15px;
 }
 
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox {
+  display: block;
+  margin-left: 5px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
 .list_item_row {
   padding-left: 8px;
   padding-top: 8px;

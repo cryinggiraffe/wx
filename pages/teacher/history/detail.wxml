@@ -1,6 +1,6 @@
 <!--pages/teacher/publishHomework/publishHomework.wxml-->
 <view class='content'>
-  <text class='header'>发布作业</text>
+  <text class='header'>作业编辑</text>
 
   <view class='reserve'>
       <view class='flex reserve_type'>
@@ -14,30 +14,22 @@
       
       <view class='reserve_type reserve_man'>
         <view class='reserve_num'>作业描述</view>
-        <input placeholder-style='color: #999;font-size: 30rpx;' name='lxr' class='reserve_inp' placeholder='请输入作业描述' bindinput="descriptionInput"/>
+        <input placeholder-style='color: #999;font-size: 30rpx;' name='lxr' class='reserve_inp' placeholder='请输入作业描述' value="{{hTitle}}" bindinput="descriptionInput"/>
       </view>
     </view>
 
   <view class="tui-content">
-    <checkbox-group bindchange="checkboxChange">
+
+      <checkbox-group bindchange="checkboxChange">
      
     <label class="checkbox" wx:for-items="{{items}}">
       <view class="tui-menu-list"><checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>     
     </label>
   </checkbox-group>
- 
-  <!--
-    <view class='reserve_type reserve_man'>
-    <view class="tui-show-name">
-    已选：
-    <text wx:for="{{checkArr}}" bindtap='getChosen'> {{item}} </text>
-    </view>
-  </view>
-  -->
 
 
   <view class='footer'>
-      <button class='btn-area' bindtap='toPublish'>发布</button>
+      <button class='btn-area' bindtap='toModify'>修改并发布</button>
     </view>
 
   </view>

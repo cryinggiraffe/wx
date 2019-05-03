@@ -23,14 +23,18 @@
     "pages/teacher/questions/questions",
     "pages/teacher/publishHomework/publishHomework",
     "pages/teacher/history/history",
+    "pages/teacher/history/detail",
     "pages/teacher/appointment/appointment",
     "pages/teacher/feedBack/feedBack",
     "pages/teacher/courseGrade/courseGrade",
     "pages/teacher/checkIn/checkIn",
-	"pages/student/questions/questions",
+    "pages/student/questions/questions",
     "pages/student/homeworkDetail/homeworkDetail",
     "pages/teacher/statistic/statistic",
-    "pages/teacher/statisticDetail/statisticDetail"
+    "pages/teacher/statisticDetail/statisticDetail",
+    "pages/teacher/location/location",
+    "pages/student/locationSignOn/locationSignOn",
+    "pages/student/locationDetail/locationDetail"
   ],
   "permission": {
     "scope.userLocation": {
@@ -43,5 +47,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
