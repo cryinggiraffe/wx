@@ -18,23 +18,25 @@
       </view>
     </view>
 
-  <view class="tui-content">
-    <checkbox-group bindchange="checkboxChange">
+    <view class="tui-content">
+    <text class='header'>选择题</text>
+  <checkbox-group bindchange="checkboxChange">
      
-    <label class="checkbox" wx:for-items="{{items}}">
-      <view class="tui-menu-list"><checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>     
+    <label class="checkbox" wx:for="{{items}}">
+      <view class="tui-menu-list">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}"/>{{item.value}}
+      </view>     
     </label>
   </checkbox-group>
  
-  <!--
-    <view class='reserve_type reserve_man'>
-    <view class="tui-show-name">
-    已选：
-    <text wx:for="{{checkArr}}" bindtap='getChosen'> {{item}} </text>
-    </view>
-  </view>
-  -->
-
+  <text class='header'>简答题</text>
+  <checkbox-group bindchange="checkboxChange2">
+     
+    <label class="checkbox" wx:for='{{simpleQuestions}}'>
+      <view class="tui-menu-list">
+        <checkbox value="{{item.id}}" checked="{{item.checked}}"/>{{item.value}}</view>     
+    </label>
+  </checkbox-group>
 
   <view class='footer'>
       <button class='btn-area' bindtap='toPublish'>发布</button>
