@@ -11,7 +11,9 @@ Page({
     items:[],
     hId:'',
     hTitle:'',
-    selected:''
+    selected:'',
+    simpleQuestions:[],
+    selectedS:'',
   },
 
   /**
@@ -34,8 +36,8 @@ Page({
     })
 
     //var address = 'http://120.55.54.247:8080';
-    //var address = 'http://localhost:8080/TeachingAssistantSystem'
-    var address = 'https://www.ufeng.top/TeachingAssistantSystem'
+    var address = 'http://localhost:8080/TeachingAssistantSystem'
+    //var address = 'https://www.ufeng.top/TeachingAssistantSystem'
 
     wx.request({
       url: address + '/getAllCourseQuestions',
@@ -49,17 +51,45 @@ Page({
         for (let i = 0; i < list.length; i++) {
           that.setData({
             objects: {
-              name: list[i].id, value: list[i].cqContent, cqId:list[i].cqId
+              id: list[i].id, value: list[i].cqContent, cqId:list[i].cqId
             }
           })
           that.data.items.push(that.data.objects);
         }
-        var vvv = that.data.items;
+        var cques = that.data.items;
         that.setData({
-          items: vvv
+          items: cques
         })
+        console.log(that.data.items)
       }
     },
+
+    wx.request({
+      url: address + '/getAllSimpleQuestions',
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data:{
+        c_id:this.cId,
+      },
+      success:function(res){
+        console.log(res.data)
+        var list = res.data;
+
+        for (let i = 0; i < list.length; i++) {
+          that.setData({
+            objects: {
+              id: list[i].id, value: list[i].sqContent, sqId: list[i].sqId
+            }
+          })
+          that.data.simpleQuestions.push(that.data.objects);
+        }
+        var sques = that.data.simpleQuestions;
+        that.setData({
+          simpleQuestions: sques
+        })
+        console.log(that.data.simpleQuestions)
+      }
+    })
+
     )
   },
 
@@ -75,8 +105,8 @@ Page({
     var arr2 = [];
     e.detail.value.forEach(current => {
       for (var value of this.data.items) {
-        if (current == value.name) {
-          arr.push(value.name);
+        if (current == value.id) {
+          arr.push(value.id);
           arr2.push(value.cqId);
           break;
         }
@@ -84,7 +114,22 @@ Page({
     });
     this.setData({ checkArr: arr });
     this.setData({ selected: arr2.join("/")})
+  },
 
+  checkboxChange2: function (e) {
+    var arr3 = [];
+    var arr4 = [];
+    e.detail.value.forEach(current => {
+      for (var value of this.data.simpleQuestions) {
+        if (current == value.id) {
+          arr3.push(value.id);
+          arr4.push(value.sqId);
+          break;
+        }
+      }
+    });
+    this.setData({ checkArr: arr3 });
+    this.setData({ selectedS: arr4.join("/") })
   },
 
   toPublish:function(e) {
@@ -96,7 +141,7 @@ Page({
         title: '请输入作业描述',
         content: ''
       })
-    }else if(this.data.selected.length == 0){
+    }else if(this.data.selected.length == 0&&this.data.selectedS.length == 0){
       wx.showToast({
         title: '请至少选择一题',
         content: ''
@@ -110,7 +155,8 @@ Page({
           h_id: this.data.hId,
           h_title: this.data.hTitle,
           release_time: this.data.date,
-          selected:this.data.selected
+          selected:this.data.selected,
+          selectedS:this.data.selectedS
         },
 
         success: function (res) {
