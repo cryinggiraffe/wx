@@ -1,5 +1,6 @@
 // pages/teacher/checkIn/checkIn.js
 var app = getApp()
+var util = require('../../../utils/util.js');
 Page({
 
   /**
@@ -71,9 +72,13 @@ Page({
    */
   onLoad: function (options) {
     app.editTabBar1();
+    var date = util.formatDate(new Date());
+    var time = util.formatCTime(new Date());
     this.setData({
       cName: options.cName,
-      cId: options.cId
+      cId: options.cId,
+      date: date,
+      time: time
     })
   },
 
