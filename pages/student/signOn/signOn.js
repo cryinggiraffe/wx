@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    disable: false,
   },
   inputToken: function (data) {
     // console.log(data)
@@ -16,6 +16,9 @@ Page({
 
   signOn: function (e) {
     var that = this;
+    that.setData({
+      disable: true,
+    })
     //var address = 'http://120.55.54.247:8080'
     //var address = 'http://localhost:8080/TeachingAssistantSystem'
     var address = 'https://www.ufeng.top/TeachingAssistantSystem'
@@ -47,6 +50,9 @@ Page({
             icon: 'none'
           })
         }
+        that.setData({
+          disable: false
+        })
 
       }
     });

@@ -133,8 +133,8 @@ Page({
 	var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     var that = this;
     wx.request({
-	  url: address + '/question/findChoiceQuestion',
-      //url: 'http://localhost:8080/question/findChoiceQuestion',
+      url: address + '/question/findQuestion',
+      //url: 'http://localhost:8080/question/findQuestion',
 	  method: 'POST',
       data: {
         hId: that.data.hId
@@ -146,7 +146,9 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          choiceQuestion_list: res.data
+          type: res.data.type,
+          choiceQuestion_list: res.data.choiceQuestions,
+          simpleQuestion: res.data.simpleQuestion
         })
         mymap = new Map();
         nmap = new Map();
