@@ -8,6 +8,6 @@
         <textarea class="weui-input" auto-focus placeholder="" maxlength='20' bindinput='inputToken'/>
       </view>
     </view>
-    <button bindtap='signOn'>签到</button>
+    <button disabled="{{disable}}" type='primary' bindtap='signOn'>签到</button>
   </view>
 </view>

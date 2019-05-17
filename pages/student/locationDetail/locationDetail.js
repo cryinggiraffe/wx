@@ -13,6 +13,7 @@ Page({
     circles: [],
     mylatitude: "",
     mylongitude: "",
+    disable: false,
   },
 
   getDistance: function (lat1, lng1, lat2, lng2) {
@@ -34,6 +35,9 @@ Page({
   lSignOn: function () {
     var address = 'https://www.ufeng.top/TeachingAssistantSystem'
     var that = this;
+    that.setData({
+      disable: true,
+    })
     wx.getLocation({
       type: 'gcj02',
       success: function (res) {
@@ -85,6 +89,9 @@ Page({
             duration: 2000
           })
         }
+        that.setData({
+          disable: false,
+        })
 
       }
     })
