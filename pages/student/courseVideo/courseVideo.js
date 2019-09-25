@@ -11,11 +11,11 @@ Page({
   toVideo: function (e) {
     let vId = e.currentTarget.dataset.item.vId;
     wx: wx.navigateTo({
-      url: '/pages/student/video/video?vId='+ vId,
+      url: '/pages/student/video/video?vId=' + vId,
     })
   },
   showActions: function (e) {
-    
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -40,6 +40,7 @@ Page({
     var that = this
     wx.request({
       url: 'https://www.ufeng.top/TeachingAssistantSystem/video/findAll',
+      //url: 'http://localhost:8080/TeachingAssistantSystem/video/findAll',
       method: 'GET',
       data: {
       },
